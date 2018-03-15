@@ -1,0 +1,14 @@
+.file-box {
+  display: table-cell;
+  padding: 10px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  background-color: #efefef;
+  text-align: center;
+  vertical-align: middle;
+}
+.file-input {
+  position: relative;
+  display: block;
+  opacity: 0;
+}
