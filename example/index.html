@@ -1,34 +1,48 @@
-<script src="../fileinput.js"></script>
-<link href="../fileinput.css" rel="stylesheet" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fileinput Example</title>
+  <link href="../fileinput.css" rel="stylesheet" />
+  
+  <style>
+    .m {
+      margin: 15px 0;
+    }
+    
+    #input {
+      width: 300px;
+      height: 100px;
+      opacity: 0;
+    }
+    
+    form {
+      width: 300px;
+    }
+  </style>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="../fileinput.js"></script>
+</head>
+<body>
+  
+  <form method="post" action="./upload.php" enctype="multipart/form-data">
+    <input hidden="hidden" name="origin" value="./" >
+    <div class="m">
+      <input type="file" id="input" name="files[]" accept=".png, .jpg, .jpeg" multiple>
+    </div>
+    <button type="submit" style="width: 100%">Send</button>
+  </form>
 
-<style>
-  .m {
-    margin: 15px 0;
-  }
+  <script>
 
-  #input {
-    width: 300px;
-    height: 100px;
-    opacity: 0;
-  }
+    // Create new Fileinput object using jquery selector
+    // The DOM structure around that element must match the required one
+    createFileinput($('#input'));
 
-  form {
-    width: 300px;
-  }
-</style>
+  </script>
 
-<form method="post" action="./upload.php" enctype="multipart/form-data">
-  <input hidden="hidden" name="origin" value="./" >
-  <div class="m">
-    <input type="file" id="input" name="files[]" accept=".png, .jpg, .jpeg" multiple>
-  </div>
-  <button type="submit" style="width: 100%">Send</button>
-</form>
-
-<script>
-
-  // Create new Fileinput object using jquery selector
-  // The DOM structure around that element must match the required one
-  createFileinput($('#input'));
-
-</script>
+</body>
+</html>
