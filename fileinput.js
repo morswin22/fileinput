@@ -4,9 +4,9 @@ function createFileinput(finput) {
   let form = div.parent();
 
   if (div.is('div') && form.is('form')) {
-    let fbox = $('<div>').addClass('file-box').html('Select files to upload');
+    let fbox = $('<div>').addClass('fileinput-box').html('Select files to upload');
     div.prepend(fbox);
-  
+
     finput.on('change', ()=>{
       let files = finput[0].files;
       if (files.length == 0) {
@@ -24,6 +24,18 @@ function createFileinput(finput) {
           ableToUpload = false;
         }
       }
+      fbox.removeClass('drag');
+    });
+
+    finput.on('dragenter', ()=> {
+      fbox.html('Drop selected files');
+      fbox.addClass('drag');
+    });
+    finput.on('dragleave', ()=>{
+      finput.trigger('change');
+    });
+    finput.on('drop', ()=>{
+      finput.trigger('change');
     });
   
     form.on('submit', e=>{
@@ -32,7 +44,7 @@ function createFileinput(finput) {
       }
     });
   
-    finput.addClass('file-input');
+    finput.addClass('fileinput-input');
     fbox.css({'width': finput.css('width')});
     fbox.css({'height': finput.css('height')});
     finput.css({'width': fbox.outerWidth()});

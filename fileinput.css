@@ -1,4 +1,4 @@
-.file-box {
+.fileinput-box {
   display: table-cell;
   padding: 10px;
   border: 1px solid #dddddd;
@@ -7,7 +7,11 @@
   text-align: center;
   vertical-align: middle;
 }
-.file-input {
+.fileinput-box.drag {
+  border: 3px dotted #cfcfcf;
+  border-radius: 9px;
+}
+.fileinput-input {
   position: relative;
   display: block;
   opacity: 0;
